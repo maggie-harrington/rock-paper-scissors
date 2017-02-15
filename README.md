@@ -45,10 +45,10 @@ This project demonstrates building an app using PHPUnit, Silex and Twig framewor
 
 | Behavior - What does determineWinner() return? | Input    | Output     |
 |---------------------------------------------------|----------|------------|
-|                                                   | Rock vs Paper   | Paper wins! |
-|                                                   | Rock vs Scissors     | Rock wins!  |
-|                                                   | Scissors vs Paper    | Scissors wins!  |
 |                                                   | Rock vs Rock    | Draw! |
+|                                                   | Rock vs Paper   | Player 2 wins! |
+|                                                   | Rock vs Scissors     | Player 1 wins! |
+|                                                   | Scissors vs Paper    | Player 1 wins!  |
 
 * Phase 4 - Initial Silex framework with "Hello" on home page
 * Phase 5 - Create twig framework with buttons for the users to select rock, paper or scissors.
