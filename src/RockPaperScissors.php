@@ -1,32 +1,33 @@
 <?php
     class RockPaperScissors
     {
-        private $player1Input;
+        private $playerInput;
 
         function __construct($input1)
         {
-            $this->player1Input = $input1;
+            $this->playerInput = $input1;
 
         }
 
-        function getPlayer1Input()
+        function getPlayerInput()
         {
-            return $this->player1Input;
+            return $this->playerInput;
         }
-        function getPlayer2Input()
-        {
-            return $this->player2Input;
-        }
+
 
         function save()
         {
             array_push($_SESSION['player_choices'], $this);
         }
 
-        function determineWinner($input1, $input2){
+        static function clear()
+        {
+            return $_SESSION['player_choices'] = array();
+        }
+        static function determineWinner($input1, $input2){
 
             $player_combos = array("rockrock"=>"draw", "scissorsscissors"=>"draw", "paperpaper"=>"draw", "rockpaper"=>"player2", "paperrock"=>"player1", "rockscissors" => "player1", "scissorsrock" => "player2", "scissorspaper"=>"player1", "paperscissors"=>"player2");
-            $player_input = $input1 . $input2;
+            $player_input = $input1->getPlayerInput() . $input2->getPlayerInput();
 
             foreach($player_combos as $combo => $return)  {
                 if($player_input == $combo){

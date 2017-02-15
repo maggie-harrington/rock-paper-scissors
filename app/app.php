@@ -20,25 +20,28 @@
 
 
    $app->get("/", function() use ($app) {
+    RockPaperScissors::clear();
+    var_dump($_SESSION['player_choices']);
    return $app['twig']->render('playerinput.html.twig');
    });
 
    $app->post("/player_2", function() use ($app) {
        $player_1 = new RockPaperScissors($_POST["choice"]);
        $player_1->save();
+       var_dump($_SESSION['player_choices']);
        return $app['twig']->render('player_2.html.twig');
    });
 
    $app->post("/player_results", function() use ($app) {
     $player_2 = new RockPaperScissors($_POST["choice"]);
-    $player_2->save();
-    
-    var_dump($_SESSION['player_choices' [0]]);
 
-    // if($_SESSION['player_choices']->determineWinner($player_1, $player_2))
-    //
-    // var_dump($player_2->determineWinner($player_1_choice, $player_2_choice));
-   return $app['twig']->render('player_results.html.twig');
+    $player_2->save();
+    var_dump($_SESSION['player_choices']);
+
+    $winner = RockPaperScissors::determineWinner($_SESSION['player_choices'][0], $_SESSION['player_choices'][1]);
+    var_dump($winner);
+
+   return $app['twig']->render('player_results.html.twig', array('winner' => $winner));
    });
 
 
