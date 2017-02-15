@@ -1,18 +1,18 @@
 <?php
 require_once "src/RockPaperScissors.php";
-class RockPaperScissorsTest extends PHPUnit_Framework_TestCase
-{
-    function test_determineWinner()
+    class RockPaperScissorsTest extends PHPUnit_Framework_TestCase
     {
-        //Arrange
-        $test_RockPaperScissors  = new RockPaperScissors($input1, $input2);
-        $input1 =
-        $input2 =
-        //Act
-        $result = $test_RockPaperScissors->determineWinner($input1, $input2);
-        //Assert
-        $this->assertEquals(, $result);
+        function test_determineWinner()
+        {
+            $test_winner = new RockPaperScissors;
+                //Arrange
+                $input1 = "rock";
+                $input2 = "rock";
+                $test_winner->determineWinner($input1, $input2);
+                //Act
+                $result = $test_winner->determineWinner($input1, $input2);
+                //Assert
+                $this->AssertEquals("draw", $result);
+        }
     }
-}
-
-?>
+ ?>
