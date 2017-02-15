@@ -21,12 +21,13 @@
 
         function determineWinner($input1, $input2){
 
-            $player_combos = array("rockrock"=>"draw");
+            $player_combos = array("rockrock"=>"draw", "rockpaper"=>"player2", "paperrock"=>"player1");
             $player_input = $input1 . $input2;
 
             foreach($player_combos as $combo => $return)  {
                 if($player_input == $combo){
                     return $return;
+                    $key++;
                 }
             }
 

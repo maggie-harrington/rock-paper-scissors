@@ -6,13 +6,13 @@ require_once "src/RockPaperScissors.php";
         {
             $test_winner = new RockPaperScissors;
                 //Arrange
-                $input1 = "rock";
+                $input1 = "paper";
                 $input2 = "rock";
                 $test_winner->determineWinner($input1, $input2);
                 //Act
                 $result = $test_winner->determineWinner($input1, $input2);
                 //Assert
-                $this->AssertEquals("draw", $result);
+                $this->AssertEquals("player1", $result);
         }
     }
  ?>
