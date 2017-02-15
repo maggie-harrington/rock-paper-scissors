@@ -1,14 +1,13 @@
 <?php
     class RockPaperScissors
     {
-        // private $player1Input;
-        // private $player2Input;
+        private $player1Input;
 
-        // function __construct($input1, $input2)
-        // {
-        //     $this->player1Input = $input1;
-        //     $this->player2Input = $input2;
-        // }
+        function __construct($input1)
+        {
+            $this->player1Input = $input1;
+
+        }
 
         function getPlayer1Input()
         {
@@ -17,6 +16,11 @@
         function getPlayer2Input()
         {
             return $this->player2Input;
+        }
+
+        function save()
+        {
+            array_push($_SESSION['player_choices'], $this);
         }
 
         function determineWinner($input1, $input2){
